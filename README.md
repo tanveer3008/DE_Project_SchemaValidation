@@ -72,9 +72,11 @@ Execute Below query to create a table
 	[ModifiedDate] [datetime] NOT NULL
 ) ON [PRIMARY]
 GO**
+
 This will create a table name FileDetailsFormat  in primary filespace
 
 Run the below script to insert a data
+
 **INSERT [dbo].[FileDetailsFormat] ([FileNo], [FileName], [ColumnName], [ColumnDateFormat], [ColumnIsNull], [ModifiedDate]) VALUES (1, N'Product', N'StartDate', N'MM-dd-yyyy', N'true', CAST(N'2023-06-18T22:34:09.000' AS DateTime))
 INSERT [dbo].[FileDetailsFormat] ([FileNo], [FileName], [ColumnName], [ColumnDateFormat], [ColumnIsNull], [ModifiedDate]) VALUES (1, N'Product', N'EndDate', N'MM/dd/yyyy', N'true', CAST(N'2023-06-18T22:34:09.000' AS DateTime))
 INSERT [dbo].[FileDetailsFormat] ([FileNo], [FileName], [ColumnName], [ColumnDateFormat], [ColumnIsNull], [ModifiedDate]) VALUES (1, N'Product', N'CreateDate', N'MM/dd/yyyy', N'true', CAST(N'2023-06-18T22:34:09.000' AS DateTime))
