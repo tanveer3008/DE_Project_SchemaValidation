@@ -8,6 +8,5 @@ Reject the CSV File if:
 1. It containt duplicate rows
 2. Validate the Date format is accurate
 
-
 ### Architecture Diagram
 ![main](Architecture.PNG)
