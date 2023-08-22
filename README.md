@@ -51,6 +51,10 @@ Steps:
  3. select pricing tier as Standard for current project and fill all necessary details.
  4. once all validations are passed click on create
 
+### Create Azure KeyVault:
+ 1. Login to Azure portal
+ 2. search  Azure KeyVault and click on create.
+ 3. Fill Required Details and create KeyVault
 
    
 
