@@ -63,7 +63,7 @@ Conect to Az SQL DB Server using SQL Server Management Studio (SSMS) Query Edito
 
 Execute Below query to create a table
 
-CREATE TABLE [FileDetailsFormat](
+	CREATE TABLE [FileDetailsFormat](
 	[FileNo] [int] NOT NULL,
  
 	[FileName] [nvarchar](100) NOT NULL,
@@ -76,9 +76,9 @@ CREATE TABLE [FileDetailsFormat](
  
 	[ModifiedDate] [datetime] NOT NULL
  
-) ON [PRIMARY]
+	) ON [PRIMARY]
 
-GO
+	GO
 
 This will create a table name FileDetailsFormat  in primary filespace
 
