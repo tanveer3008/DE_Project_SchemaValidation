@@ -12,4 +12,4 @@ Reject the CSV File if:
 ### Architecture Diagram
 ![alt text](https://github.com/tanveer3008/DE_Project_SchemaValidation
 /blob/main/architecture.jpg?raw=true)
-![main](architecute.png)
+![main](Architecture.PNG)
