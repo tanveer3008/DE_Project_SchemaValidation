@@ -35,6 +35,7 @@ Steps:
 2. Select Storage Account and click on create
 3. In advance tab , select checkbox of enable hierarichal namespace.
 ![main].(screenshots/adls.png)
+<img src="/screenshots/adls.png" alt="Alt text" title="Optional title">
 
 4. Fill other necessary details and create a ADLS Gen2 Storage.
 
