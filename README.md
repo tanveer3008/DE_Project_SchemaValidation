@@ -114,7 +114,8 @@ we can use same insert with changing filename  and fileno.
 ### Add Secrets in KeyVault:
 accesing the passwords or confidential documents using keyvault is the best practice.
 for our use case we can store the sqldbpassword and sastoken of adls in key vault.
-Open a created Key vautl and click on secrets in left panel and add the secrets
+Open a created Key vault and click on secrets in left panel and add the secrets
+
 <img src="/screenshots/keyvault.png" alt="db">
 
 
