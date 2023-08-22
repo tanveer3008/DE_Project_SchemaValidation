@@ -130,8 +130,9 @@ secretscope url - **https://adb-**********.azuredatabricks.net/?o=20326616568880
 
  <img src="/screenshots/secretscope.png" alt="secretscope.png">
 
-DNS Name you can get from keyVault--> createdKeyVault --> DNS name
-ResourceId  you can get from keyVault--> createdKeyVault --> Properties --> ResourceId
+**DNS Name you can get from keyVault--> createdKeyVault --> DNS name**
+
+**ResourceId  you can get from keyVault--> createdKeyVault --> Properties --> ResourceId**
 
    
 
