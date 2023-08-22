@@ -10,6 +10,7 @@ Reject the CSV File if:
 
 ### Architecture Diagram
 ![main](Architecture.PNG)
+
 Let's Understand the components of architecture diagram.
 1. ADLS - Azure DataLake  Storage Gen2:
    ADLS follows DFS (Distributed file system) protocol which is useful for big data analytics and parallel processing.
@@ -23,7 +24,7 @@ Let's Understand the components of architecture diagram.
 4. Azure key Vault - Azure Key vault is used to manage your secrets in azure. we can connect azure key vault to          different services of azure
 5. Azure SQL Database: Azure SQL Database is a relational database service provided by Azure.
 
-#### Use of Each Component in Project
+### Use of Each Component in Project
 External Systems will place data in ADLS Gen2 Storage in CSV format(landing folder). We will be using stoage trigger of Azure data factory so that if any new files come then pipeline will be executed automatically.
 actual logic will be written in the databricks notebook to reject the file if it fails and load the file into rejected folder of ADLS , if all validations are passed , then it will be loaded into staging folder and then it will be used for further analysis. Azure key vault will be used to store all the secrets such as SAS token, sqldb passwoerd, scoped credentials etc
    
