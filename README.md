@@ -135,6 +135,9 @@ secretscope url - **https://adb-**********.azuredatabricks.net/?o=20326616568880
 
 **ResourceId  you can get from keyVault--> createdKeyVault --> Properties --> ResourceId**
 
+then click on create to create Secret Scope
+
+
    
 
 
