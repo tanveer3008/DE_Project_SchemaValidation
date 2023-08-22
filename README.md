@@ -34,7 +34,7 @@ Steps:
 1.Login to Azure portal
 2. Select Storage Account and click on create
 3. In advance tab , select checkbox of enable hierarichal namespace.
-![screenshots].(adls.png)
+![main].[screenshots].(adls.png)
 4. Fill other necessary details and create a ADLS Gen2 Storage.
 
 
