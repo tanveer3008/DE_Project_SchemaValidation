@@ -31,11 +31,10 @@ actual logic will be written in the databricks notebook to reject the file if it
 ## Step By Step Execution:
 ### Create ADLS  Gen2 Storage:
 Steps:
-1.Login to Azure portal
+1. Login to Azure portal
 2. Select Storage Account and click on create
 3. In advance tab , select checkbox of enable hierarichal namespace.
-![main].(screenshots/adls.png)
-<img src="/screenshots/adls1.png" alt="Alt text" title="Optional title">
+<img src="/screenshots/adls1.png" alt="Hierarichal" title="Optional title">
 
 4. Fill other necessary details and create a ADLS Gen2 Storage.
 
