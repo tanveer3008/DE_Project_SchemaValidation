@@ -27,6 +27,15 @@ Let's Understand the components of architecture diagram.
 ### High Level Understanding of Project
 External Systems will place data in ADLS Gen2 Storage in CSV format(landing folder). We will be using stoage trigger of Azure data factory so that if any new files come then pipeline will be executed automatically.
 actual logic will be written in the databricks notebook to reject the file if it fails and load the file into rejected folder of ADLS , if all validations are passed , then it will be loaded into staging folder and then it will be used for further analysis. Azure key vault will be used to store all the secrets such as SAS token, sqldb passwoerd, scoped credentials etc
-   
+
+## Step By Step Execution:
+### Create ADLS  Gen2 Storage:
+Steps:
+1.Login to Azure portal
+2. Select Storage Account and click on create
+3. In advance tab , select checkbox of enable hierarichal namespace.
+![screenshots](adls.png)
+4. Fill other necessary details and create a ADLS Gen2 Storage.
+
 
 
