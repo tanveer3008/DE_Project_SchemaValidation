@@ -6,7 +6,7 @@ Internal Application Sends CSV file into ADLS Storage.
 Validation needs to be Applied on the incoming CSV file.
 Reject the CSV File if:
 1. It containt duplicate rows
-2. Validate the Date format is accurate
+2.  Date format is accurate
 
 ### Architecture Diagram
 ![main](Architecture.PNG)
@@ -55,6 +55,22 @@ Steps:
  1. Login to Azure portal
  2. search  Azure KeyVault and click on create.
  3. Fill Required Details and create KeyVault
+
+### add Schema in SQL DB
+We need to create a schema in sql db against which the incoming file will be validated .
+Conect to Az SQL DB Server using SQL Server Management Studio (SSMS) Query Editor or click on query Editor in left menu  of Azure SQL db  in Azure portal.
+<img src="/screenshots/db.png" alt="db">
+
+Execute Below query to create a table
+** CREATE TABLE [FileDetailsFormat](
+	[FileNo] [int] NOT NULL,
+	[FileName] [nvarchar](100) NOT NULL,
+	[ColumnName] [nvarchar](100) NULL,
+	[ColumnDateFormat] [nvarchar](108) NULL,
+	[ColumnIsNull] [nvarchar](100) NULL,
+	[ModifiedDate] [datetime] NOT NULL
+) ON [PRIMARY]
+GO **
 
    
 
