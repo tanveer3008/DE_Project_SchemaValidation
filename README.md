@@ -32,11 +32,27 @@ actual logic will be written in the databricks notebook to reject the file if it
 ### Create ADLS  Gen2 Storage:
 Steps:
 1. Login to Azure portal
-2. Select Storage Account and click on create
+2. search Storage Account and click on create
 3. In advance tab , select checkbox of enable hierarichal namespace.
 <img src="/screenshots/adls1.png" alt="Hierarichal" title="Optional title">
 
 4. Fill other necessary details and create a ADLS Gen2 Storage.
+### Create Azure SQL Database
+1. Login to Azure portal
+2. search Azure SQL Database and click on create
+3. If Server is not created, create SQL Database server and create SQL DB.
+4. make sure Allow Azure services and resources to access this server is enable in advance tab
+   <img src="/screenshots/sqldb.png" alt="sqldb">
+5. Fill necessary details and create SQL Database.
+   
+### Create Azure Databricks:
+ 1. Login to Azure portal
+ 2. search  Azure Databricks and click on create.
+ 3. select pricing tier as Standard for current project and fill all necessary details.
+ 4. once all validations are passed click on create
+
+
+   
 
 
 
