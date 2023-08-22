@@ -124,6 +124,7 @@ Steps to create secret scope.
 1. start azure databricks server.
 2. once azure databricks server is started go into homepage of azure databricks.
 3. to access the secret scope in databricks add secrets/ceatescope in url.
+   
 for eg. databricks homepage url- **https://adb-**********.azuredatabricks.net/?o=2032661656888072#**
    
 secretscope url - **https://adb-**********.azuredatabricks.net/?o=2032661656888072#secrets/createScope**
