@@ -104,6 +104,13 @@ Run the below script to insert a data
   	[ModifiedDate]) VALUES (1, N'Product', N'ModifiedDate', N'MM/dd/yyyy', N'true', CAST(N'2023-06-			
    	18T22:34:09.000' AS DateTime)) GO
 
+Let's understand what we are doing here.
+We hav created table FileDetailsFormat which has table Filename( which will be the name of file in adls gen2 landing folder) , column name ( name of the column) and columnDateFormat( expectedformat of date in that column).
+By using insert query we have inserted filename as Product and  4 columns StartDate.EndDate,CreateDate and
+ModifiedDate with expected Date Format.
+If there is any other file name for example payment(payment.csv) and we have to validate same things for that file,
+we can use same insert with changing filename  and fileno.
+
 
    
 
