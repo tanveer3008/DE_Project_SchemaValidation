@@ -138,6 +138,16 @@ secretscope url - **https://adb-**********.azuredatabricks.net/?o=20326616568880
 then click on create to create Secret Scope
 
 
+### Create  Cluster in databricks:
+1.Select Launch Workspace on the Overview page of your Azure Databricks service.
+2.Select Clusters **-->** + Create Cluster.
+3.Create a cluster name and accept the remaining default settings.
+4.Select Create Cluster.
+
+**Note: If you are using Free azure credit of 200$, make sure to create single node cluster with 4 cores
+As Azure doesnot allow any vm greater than 4 core in azure free credit**
+ <img src="/screenshots/clusterdatabricks.png" alt="secretscope.png">
+
    
 
 
