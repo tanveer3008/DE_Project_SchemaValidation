@@ -148,6 +148,38 @@ then click on create to create Secret Scope
 As Azure doesnot allow any vm greater than 4 core in azure free credit**
  <img src="/screenshots/clusterdatabricks.png" alt="secretscope.png">
 
+ Now import the **Project.ipynb** file into databricks.
+ Lets understand each cell in that file
+ **cell-1**: By using  dbutils.widgets.get('fileName') we are getting filename from azure data factory once it is landed on the adls gen2 storage. 
+ once we have received this file then we are removing the extension so that we can compare it with name stored in our db (Product.csv will be changed to Product)
+
+ **Cell-2**: In this cell we are getting required things to connect to db and adls such as sqlpassword,scopedtoken,sastoken etc and assigning it to some variable so we can access those through out the notebook
+ **Cell-3**: this code is used to check if a specific Azure Blob Storage container is mounted at a given mount point in a Databricks environment. If it's not already mounted, it mounts the container using a provided SAS token for authentication. If it's already mounted, it simply outputs a message indicating that it is already mounted
+ **if not any(mount.mountPoint == landingMountPoint for mount in dbutils.fs.mounts()):**
+ This line checks whether a certain mount point (landingMountPoint) is already mounted or not. In Databricks, you can mount external storage solutions (like Azure Data Lake Storage or Amazon S3) to specific mount points. This line is using a list comprehension and the any() function to iterate through the currently mounted points and checks if any of them matches landingMountPoint.
+
+ If there is no storage mounted then next part of the code gets executed.
+ It uses dbutils.fs.mount() to mount an Azure Blob Storage container to the specified landingMountPoint. The parameters used are:
+
+source: The source URL of the Azure Blob Storage container. It's constructed using the provided storageContainer and storageAccount variables.
+mount_point: The directory in the Databricks filesystem where the Azure Blob Storage container will be mounted.
+extra_configs: Additional configurations for the mount operation. it's passing a Shared Access Signature (SAS) token for authentication to the Azure Blob Storage.
+The SAS token is obtained from Databricks' secrets store using dbutils.secrets.get(). The token is retrieved using the databricksScopeName and stgAccountSASTokenKey variables as identifiers.
+If the mount operation is successful, it prints 'Mounted the storage account successfully'
+**Cell-4**: In this cell we are connecting to azure sql db using jdbc(Java Database Connectivity) url , Once connection is succesful we are using read.jdbc function of spark  to retrieve the data from the database and store it in dataframe df. in last line we are just printing the values which we have retrieved from database
+
+**Cell-5**:this code reads a CSV file, filters and selects specific columns, attempts to convert the values in these columns to dates using provided formats, and counts the number of successfully converted date values. It also prints the count of successfully converted date values and the total count of rows in the DataFrame.
+**df1 = spark.read.csv('/mnt/landing/'+fileName, inferSchema=True, header=True)** Here we are reading csv file from landing folder , inferschema=True Means it will try to understand the schema of data in csv such as datatype etc and as our data will have column names so we are making header as true so it will  consider first row as column name
+
+**Cell-6:** In this cell we are validating both the conditions for our data. this code segment validates date formats in a DataFrame based on provided format information, flags errors if any column's date format is incorrect, and then moves the file to appropriate folders based on the validation outcome. It uses an errorFlag and errorMessage to keep track of errors and communicate the validation result.
+
+Case1-  No Duplicate rows.
+We are calculationg total rows and saving it in totalcount variable and we are calculating disting rows using distinct function pf python , if both values matches then we are making this condition as true passing this case
+Case2- To validate this we are getting the column name and column format from our db schema and then by using to_date function we are checking whether incoming data date format matches to the date format mentioned in db.
+
+Once both the scenario passes we are loading the data into staging folder. if any of this fails then data will be loaded into rejected folder.
+
+
    
 
 
