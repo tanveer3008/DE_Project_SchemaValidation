@@ -176,9 +176,10 @@ If the mount operation is successful, it prints 'Mounted the storage account suc
 
 **Cell-6:** In this cell we are validating both the conditions for our data. this code segment validates date formats in a DataFrame based on provided format information, flags errors if any column's date format is incorrect, and then moves the file to appropriate folders based on the validation outcome. It uses an errorFlag and errorMessage to keep track of errors and communicate the validation result.
 
-Case1-  No Duplicate rows.
+**Case1**-  No Duplicate rows.
 We are calculationg total rows and saving it in totalcount variable and we are calculating disting rows using distinct function pf python , if both values matches then we are making this condition as true passing this case
-Case2- To validate this we are getting the column name and column format from our db schema and then by using to_date function we are checking whether incoming data date format matches to the date format mentioned in db.
+
+**Case2**- To validate this we are getting the column name and column format from our db schema and then by using to_date function we are checking whether incoming data date format matches to the date format mentioned in db.
 
 Once both the scenario passes we are loading the data into staging folder. if any of this fails then data will be loaded into rejected folder.
 
