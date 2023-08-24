@@ -150,10 +150,12 @@ As Azure doesnot allow any vm greater than 4 core in azure free credit**
 
  Now import the **Project.ipynb** file into databricks.
  Lets understand each cell in that file
+ 
  **cell-1**: By using  dbutils.widgets.get('fileName') we are getting filename from azure data factory once it is landed on the adls gen2 storage. 
  once we have received this file then we are removing the extension so that we can compare it with name stored in our db (Product.csv will be changed to Product)
 
  **Cell-2**: In this cell we are getting required things to connect to db and adls such as sqlpassword,scopedtoken,sastoken etc and assigning it to some variable so we can access those through out the notebook
+ 
  **Cell-3**: this code is used to check if a specific Azure Blob Storage container is mounted at a given mount point in a Databricks environment. If it's not already mounted, it mounts the container using a provided SAS token for authentication. If it's already mounted, it simply outputs a message indicating that it is already mounted
  **if not any(mount.mountPoint == landingMountPoint for mount in dbutils.fs.mounts()):**
  This line checks whether a certain mount point (landingMountPoint) is already mounted or not. In Databricks, you can mount external storage solutions (like Azure Data Lake Storage or Amazon S3) to specific mount points. This line is using a list comprehension and the any() function to iterate through the currently mounted points and checks if any of them matches landingMountPoint.
@@ -166,6 +168,7 @@ mount_point: The directory in the Databricks filesystem where the Azure Blob Sto
 extra_configs: Additional configurations for the mount operation. it's passing a Shared Access Signature (SAS) token for authentication to the Azure Blob Storage.
 The SAS token is obtained from Databricks' secrets store using dbutils.secrets.get(). The token is retrieved using the databricksScopeName and stgAccountSASTokenKey variables as identifiers.
 If the mount operation is successful, it prints 'Mounted the storage account successfully'
+
 **Cell-4**: In this cell we are connecting to azure sql db using jdbc(Java Database Connectivity) url , Once connection is succesful we are using read.jdbc function of spark  to retrieve the data from the database and store it in dataframe df. in last line we are just printing the values which we have retrieved from database
 
 **Cell-5**:this code reads a CSV file, filters and selects specific columns, attempts to convert the values in these columns to dates using provided formats, and counts the number of successfully converted date values. It also prints the count of successfully converted date values and the total count of rows in the DataFrame.
