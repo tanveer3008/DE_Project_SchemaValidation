@@ -1,5 +1,7 @@
 # DE_Project_SchemaValidation
-E2E DE project in which incoming file is validated , if all validations are passed then it will be place into staging folder else it will be placed into rejected folder. Tools Used - Az Databricks,ADLS, AZ- KeyVault,AZSQL Server
+E2E DE project in which incoming file is validated , if all validations are passed then it will be place into staging folder else it will be placed into rejected folder. 
+
+**Tools Used - Az Databricks , ADLS ,  AZ- KeyVault , AZSQL Server , Azure Data Factory**
 
 ## High Level Project Info.
 Internal Application Sends CSV file into ADLS Storage.
