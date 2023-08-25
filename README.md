@@ -182,6 +182,24 @@ We are calculationg total rows and saving it in totalcount variable and we are c
 **Case2**- To validate this we are getting the column name and column format from our db schema and then by using to_date function we are checking whether incoming data date format matches to the date format mentioned in db.
 
 Once both the scenario passes we are loading the data into staging folder. if any of this fails then data will be loaded into rejected folder.
+### Creating a ADF Pipeline:
+If our notebook works fine in databricks then we are good . now we have to create azure pipeline which will be triggered when new file comes in landing folder of adls account. to full fill this requirement we will be using storage trigger.
+
+Step-1: Create linked service with databricks.
+once you open azure data factory then you can go to manage tab on left side-->linked Service-->and select databricks.
+Give required details  and make connectivity with databricks.
+**Note- If you are using free account with 200$ credit, make sure you select available cluster and does Not create new job cluster as it will not allow you to create giving reason as quota exceeded. To access databricks we need to give access token from databricks . to get access token you can follow below steps.**
+
+**Go to your Azure Databricks workspace.-->Click the user icon in the top-right corner of the screen-->click User Settings-->Click Access Tokens --> Generate New Token.**
+
+Step 2- Add notebook in ADF pipeline
+Step 3 - COnnect databricks to notebook and select the notebook file from datbricks using browse( in our case it is Project.ipynb)
+Step 4 - Add storage trigger in trigger and make the pipeline to trigger when  blob  is created
+
+
+Once all the steps are done, add the Product.csv file in landing folder and go into monitor tab in azure data factory and check whether pipeline gets triggered and whether after successful execution the file from landing folder moves to staging folder
+
+
 
 
    
